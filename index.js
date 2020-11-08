@@ -1,5 +1,5 @@
-import Board from "./components/Board";
-import BoardField from "./components/BoardField"
+import Board from "./components/Board.js";
+import BoardField from "./components/BoardField.js"
 
 const app = Vue.createApp({
     components: {

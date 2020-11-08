@@ -1,4 +1,4 @@
-import BoardField from "../BoardField";
+import BoardField from "../BoardField.js";
 
 const Board = {
     components: {
