@@ -10,7 +10,7 @@ const Board = {
         bombs: Number,
     },
     created() {
-        console.log('create')
+        // console.log('create')
         this.createGame();
     },
     data() {
@@ -47,7 +47,7 @@ const Board = {
 
             const neighbours = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
             for (const {x, y} of bombsPositions) {
-                console.log(x, y);
+                // console.log(x, y);
                 fields[y][x] = new Field(FieldTypes.BOMB);
 
                 for (const [dx, dy] of neighbours) {
@@ -61,11 +61,11 @@ const Board = {
 
             this.fieldsLeft = this.width * this.height - this.bombs;
 
-            console.log(fields);
+            // console.log(fields);
 
         },
         reveal(field, x, y) {
-            console.log(x, y);
+            // console.log(x, y);
             field.revealed = true;
             if (field.value === 0) {
                 const neighbours = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
@@ -83,8 +83,8 @@ const Board = {
     },
     template: `
         <div>
-        <p class="text-xl">Fields left: {{fieldsLeft}}</p>
-        <div class="rounded overflow-hidden mt-10">
+<!--        <p class="text-xl">Fields left: {{fieldsLeft}}</p>-->
+        <div class="rounded overflow-hidden">
             <div class="flex flex-row" v-for="(row,idy) in fields">
                 <board-field v-for="(field,idx) in row" @reveal="reveal(field,idx,idy)" :revealed="field.revealed"  :type="field.type" :value="field.value"></board-field>
             </div>
