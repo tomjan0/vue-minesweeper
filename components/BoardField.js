@@ -4,9 +4,6 @@ const BoardField = {
         value: Number,
         revealed: Boolean
     },
-    // watch: {
-    //     revealed
-    // },
     data() {
         return {
             marked: false
@@ -14,21 +11,11 @@ const BoardField = {
     },
     methods: {
         reveal() {
-            // e.preventDefault();
-            // console.log(e)
-            // const neighbours = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
-            // for (const [dx, dy] of neighbours) {
-            //     const field = this.getField(x + dx, y + dy);
-            //     if (field && field.type === FieldTypes.NORMAL) {
-            //         field.value++;
-            //     }
-            // }
-            // this.revealed = true;
             this.$emit('reveal');
         },
         mark(e) {
             e.preventDefault();
-            console.log(e);
+            // console.log(e);
             this.marked = !this.marked;
         }
     },

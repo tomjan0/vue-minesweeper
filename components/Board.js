@@ -1,20 +1,34 @@
 import BoardField from "./BoardField.js";
 
+
 const Board = {
     components: {
         'board-field': BoardField
     },
     props: {
-        width: Number,
-        height: Number,
+        size: Object,
         bombs: Number,
+    },
+    watch: {
+        size: function (newSize) {
+            console.log('watch')
+            // this.width = newSize.width;
+            // this.height = newSize.height;
+            this.width = this.size.width;
+            this.height = this.size.height;
+            this.createGame();
+        },
     },
     created() {
         // console.log('create')
+        this.width = this.size.width;
+        this.height = this.size.height;
         this.createGame();
     },
     data() {
         return {
+            width: undefined,
+            height: undefined,
             fields: undefined,
             fieldsLeft: undefined
         }
