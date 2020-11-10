@@ -27,13 +27,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0301c301-964c-4d92-b912-b6e3033da513" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/OptionsBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/play-fill.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/icons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Board.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/BoardField.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/BoardField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/OptionsBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/OptionsBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +47,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jumYAFH9eCHed6rwkvzSVkRKHk" />
@@ -90,7 +92,8 @@
       <workItem from="1604757789809" duration="2930000" />
       <workItem from="1604797950009" duration="2004000" />
       <workItem from="1604833836720" duration="660000" />
-      <workItem from="1604922380841" duration="4039000" />
+      <workItem from="1604922380841" duration="4152000" />
+      <workItem from="1605000167290" duration="2780000" />
     </task>
     <task id="LOCAL-00001" summary="changed naming">
       <created>1604799928390</created>
@@ -113,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604834490554</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added OptionsBar.js">
+      <created>1604926558545</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604926558545</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,13 +157,14 @@
     <MESSAGE value="changed naming" />
     <MESSAGE value="path fix" />
     <MESSAGE value="responsive size" />
-    <option name="LAST_COMMIT_MESSAGE" value="responsive size" />
+    <MESSAGE value="added OptionsBar.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="added OptionsBar.js" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="934" y="201" key="CommitChangelistDialog2" timestamp="1604834489258">
+    <state x="934" y="201" key="CommitChangelistDialog2" timestamp="1604926557140">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="934" y="201" key="CommitChangelistDialog2/62.0.2498.1440@62.0.2498.1440" timestamp="1604834489258" />
+    <state x="934" y="201" key="CommitChangelistDialog2/62.0.2498.1440@62.0.2498.1440" timestamp="1604926557140" />
     <state x="1171" y="622" key="Github.ShareDialog" timestamp="1604799730403">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
@@ -162,10 +173,10 @@
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
     <state x="1106" y="342" key="Github.UntrackedFilesDialog/62.0.2498.1440@62.0.2498.1440" timestamp="1604799737843" />
-    <state x="903" y="449" key="Vcs.Push.Dialog.v2" timestamp="1604834491785">
+    <state x="903" y="449" key="Vcs.Push.Dialog.v2" timestamp="1604926559752">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="903" y="449" key="Vcs.Push.Dialog.v2/62.0.2498.1440@62.0.2498.1440" timestamp="1604834491785" />
+    <state x="903" y="449" key="Vcs.Push.Dialog.v2/62.0.2498.1440@62.0.2498.1440" timestamp="1604926559752" />
     <state x="974" y="325" width="672" height="678" key="search.everywhere.popup" timestamp="1604923121606">
       <screen x="62" y="0" width="2498" height="1440" />
     </state>
