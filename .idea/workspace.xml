@@ -26,11 +26,31 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0301c301-964c-4d92-b912-b6e3033da513" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/play-fill.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/icons.js" afterDir="false" />
+    <list default="true" id="0301c301-964c-4d92-b912-b6e3033da513" name="Default Changelist" comment="Transition to Vue CLI and tailwind npm package">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/tailwind.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Board.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BoardField.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/OptionsBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/Field.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/OptionsBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/OptionsBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/play-fill.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Board.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/BoardField.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/OptionsBar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/icons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,10 +91,12 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="T:\Projekty JetBrains\WebStorm\vue-minesweeper\src" />
       <recent name="T:\Projekty JetBrains\WebStorm\vue-minesweeper\components" />
       <recent name="T:\Projekty JetBrains\WebStorm\vue-minesweeper\components\BoardField" />
       <recent name="T:\Projekty JetBrains\WebStorm\vue-minesweeper\components\Board" />
@@ -93,7 +115,15 @@
       <workItem from="1604797950009" duration="2004000" />
       <workItem from="1604833836720" duration="660000" />
       <workItem from="1604922380841" duration="4152000" />
-      <workItem from="1605000167290" duration="2780000" />
+      <workItem from="1605000167290" duration="2888000" />
+      <workItem from="1605052478462" duration="33000" />
+      <workItem from="1608513844510" duration="26000" />
+      <workItem from="1613750509691" duration="18000" />
+      <workItem from="1613758759750" duration="599000" />
+      <workItem from="1614015596052" duration="27000" />
+      <workItem from="1614018022052" duration="2907000" />
+      <workItem from="1614181814891" duration="1193000" />
+      <workItem from="1614191763714" duration="7139000" />
     </task>
     <task id="LOCAL-00001" summary="changed naming">
       <created>1604799928390</created>
@@ -123,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604926558545</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="try on icons">
+      <created>1605009613667</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605009613667</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,28 +195,8 @@
     <MESSAGE value="path fix" />
     <MESSAGE value="responsive size" />
     <MESSAGE value="added OptionsBar.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="added OptionsBar.js" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="934" y="201" key="CommitChangelistDialog2" timestamp="1604926557140">
-      <screen x="62" y="0" width="2498" height="1440" />
-    </state>
-    <state x="934" y="201" key="CommitChangelistDialog2/62.0.2498.1440@62.0.2498.1440" timestamp="1604926557140" />
-    <state x="1171" y="622" key="Github.ShareDialog" timestamp="1604799730403">
-      <screen x="62" y="0" width="2498" height="1440" />
-    </state>
-    <state x="1171" y="622" key="Github.ShareDialog/62.0.2498.1440@62.0.2498.1440" timestamp="1604799730403" />
-    <state x="1106" y="342" key="Github.UntrackedFilesDialog" timestamp="1604799737843">
-      <screen x="62" y="0" width="2498" height="1440" />
-    </state>
-    <state x="1106" y="342" key="Github.UntrackedFilesDialog/62.0.2498.1440@62.0.2498.1440" timestamp="1604799737843" />
-    <state x="903" y="449" key="Vcs.Push.Dialog.v2" timestamp="1604926559752">
-      <screen x="62" y="0" width="2498" height="1440" />
-    </state>
-    <state x="903" y="449" key="Vcs.Push.Dialog.v2/62.0.2498.1440@62.0.2498.1440" timestamp="1604926559752" />
-    <state x="974" y="325" width="672" height="678" key="search.everywhere.popup" timestamp="1604923121606">
-      <screen x="62" y="0" width="2498" height="1440" />
-    </state>
-    <state x="974" y="325" width="672" height="678" key="search.everywhere.popup/62.0.2498.1440@62.0.2498.1440" timestamp="1604923121606" />
+    <MESSAGE value="try on icons" />
+    <MESSAGE value="Transition to Vue CLI and tailwind npm package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transition to Vue CLI and tailwind npm package" />
   </component>
 </project>
