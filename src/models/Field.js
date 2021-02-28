@@ -8,6 +8,12 @@ export default class Field {
         this.type = type;
         this.value = type === FieldTypes.NORMAL ? 0 : -1;
         this.revealed = false;
+        this.marked = false;
+    }
+
+    reset() {
+        this.revealed = false;
+        this.marked = false;
     }
 }
 
