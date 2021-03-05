@@ -1,15 +1,15 @@
 <template>
   <div class="w-screen h-screen bg-gradient-to-br from-blue-200 to-green-300 overflow-auto">
     <div class="flex flex-row h-full flex-grow bg-pattern">
-      <options :game-in-progress="gameInProgress" :options="options" @start-game="startGame()"
-               @restart-game="restartGame" v-model:zoom="zoom"
-               v-model:chosen-option="chosenOption"></options>
+      <options :game-in-progress="gameInProgress" :options="options" :saved-games="savedGames"
+               @start-game="startGame()" @restart-game="restartGame" @save-game="saveGame"
+               v-model:zoom="zoom" v-model:chosen-option="chosenOption"></options>
       <div class="m-auto">
         <board :result="result" @reveal="handleReveal" @mark="handleMark" :zoom="zoom" :fields="fields"
                v-if="gameInProgress" :size="size" :bombs="10"></board>
       </div>
     </div>
-    <scoreboard :result="result" :bombs="bombsLeft"></scoreboard>
+    <scoreboard :result="result" :bombs="bombsLeft" :time="timer.value"></scoreboard>
   </div>
 </template>
 
@@ -40,16 +40,24 @@ export default {
       result: '',
       fields: [],
       bombsLeft: 0,
-      fieldsLeft: 0
+      fieldsLeft: 0,
+      timer: {
+        interval: undefined,
+        start: undefined,
+        value: 0
+      },
+      savedGames: []
     }
   },
   created() {
     this.size = this.options[0];
+    this.savedGames = JSON.parse(localStorage.getItem('saved-games-list')) || [];
   },
   methods: {
     startGame() {
       this.size = this.options[this.chosenOption];
       this.calcFields();
+      this.startTime();
       this.gameInProgress = true;
     },
     restartGame() {
@@ -61,6 +69,29 @@ export default {
       this.bombsLeft = this.size.bombs;
       this.fieldsLeft = this.fieldsLeft = this.size.width * this.size.height - this.size.bombs;
       this.result = '';
+    },
+    saveGame() {
+      const key = `game-${Date.now()}`;
+      const current = JSON.parse(localStorage.getItem('saved-games-list')) || [];
+      localStorage.setItem('saved-games-list', JSON.stringify(current.concat(key)));
+      localStorage.setItem(key, JSON.stringify(this.fields));
+      this.savedGames.push(key);
+    },
+    endGame(result) {
+      this.stopTime();
+      this.result = result;
+    },
+    startTime() {
+      clearInterval(this.timer.interval)
+      this.timer.value = 0;
+      this.timer.start = Date.now();
+      this.timer.interval = setInterval(() => {
+        const now = Date.now();
+        this.timer.value = (now - this.timer.start) / 1000;
+      }, 1000);
+    },
+    stopTime() {
+      clearInterval(this.timer.interval);
     },
     getField(x, y) {
       if (x >= 0 && x < this.size.width && y >= 0 && y < this.size.height) {
@@ -107,7 +138,7 @@ export default {
     reveal(field, x, y) {
       field.revealed = true;
       if (field.type === FieldTypes.BOMB) {
-        this.result = 'lose';
+        this.endGame('lose');
       } else {
         if (field.value === 0) {
           const neighbours = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
@@ -122,7 +153,7 @@ export default {
           this.fieldsLeft--;
         }
         if (this.fieldsLeft === 0) {
-          this.result = 'win'
+          this.endGame('win');
         }
       }
     },
