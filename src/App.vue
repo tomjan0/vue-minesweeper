@@ -2,11 +2,11 @@
   <div class="w-screen h-screen bg-gradient-to-br from-blue-200 to-green-300 overflow-auto">
     <div class="flex flex-row h-full flex-grow bg-pattern">
       <options :game-in-progress="gameInProgress" :options="options" :saved-games="savedGames"
-               @start-game="startGame()" @restart-game="restartGame" @save-game="saveGame"
+               @start-game="startGame()" @save-game="saveGame" @load-game="loadGame"
                v-model:zoom="zoom" v-model:chosen-option="chosenOption"></options>
       <div class="m-auto">
         <board :result="result" @reveal="handleReveal" @mark="handleMark" :zoom="zoom" :fields="fields"
-               v-if="gameInProgress" :size="size" :bombs="10"></board>
+               :size="size" :bombs="10"></board>
       </div>
     </div>
     <scoreboard :result="result" :bombs="bombsLeft" :time="timer.value"></scoreboard>
@@ -46,6 +46,7 @@ export default {
         start: undefined,
         value: 0
       },
+      gameId: '',
       savedGames: []
     }
   },
@@ -58,28 +59,55 @@ export default {
       this.size = this.options[this.chosenOption];
       this.calcFields();
       this.startTime();
+      this.gameId = `game-${Date.now()}`;
       this.gameInProgress = true;
     },
-    restartGame() {
-      for (let row of this.fields) {
-        for (const field of row) {
-          field.reset();
-        }
-      }
-      this.bombsLeft = this.size.bombs;
-      this.fieldsLeft = this.fieldsLeft = this.size.width * this.size.height - this.size.bombs;
-      this.result = '';
-    },
     saveGame() {
-      const key = `game-${Date.now()}`;
-      const current = JSON.parse(localStorage.getItem('saved-games-list')) || [];
-      localStorage.setItem('saved-games-list', JSON.stringify(current.concat(key)));
-      localStorage.setItem(key, JSON.stringify(this.fields));
-      this.savedGames.push(key);
+      console.log(this.gameId);
+      let current;
+      if (this.savedGames.includes(this.gameId)) {
+        current = JSON.parse(localStorage.getItem(this.gameId));
+        console.log(current.createdOn);
+        console.log(current.lastSavedOn);
+        console.log(current)
+      } else {
+        const list = JSON.parse(localStorage.getItem('saved-games-list')) || [];
+        localStorage.setItem('saved-games-list', JSON.stringify(list.concat(this.gameId)));
+        this.savedGames.push(this.gameId);
+
+        current = {};
+        current.createdOn = new Date();
+      }
+      current.fields = this.fields;
+      current.fieldsLeft = this.fieldsLeft;
+      current.bombsLeft = this.bombsLeft;
+      current.size = this.size;
+      current.time = this.timer.value;
+      current.gameId = this.gameId;
+
+      current.lastSavedOn = new Date();
+
+
+      localStorage.setItem(this.gameId, JSON.stringify(current));
+    },
+    loadGame(gameId) {
+      const gameData = JSON.parse(localStorage.getItem(gameId));
+      this.fields = gameData.fields;
+      this.size = gameData.size;
+      this.fieldsLeft = gameData.fieldsLeft;
+      this.bombsLeft = gameData.bombsLeft;
+      this.startTime();
+      this.timer.value = gameData.time;
+      this.timer.start = this.timer.start - (gameData.time * 1000);
+      this.gameId = gameData.gameId;
+      this.gameInProgress = true;
+      this.result = '';
+
     },
     endGame(result) {
       this.stopTime();
       this.result = result;
+      this.gameInProgress = false;
     },
     startTime() {
       clearInterval(this.timer.interval)
